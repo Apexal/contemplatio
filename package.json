@@ -16,7 +16,8 @@
     "morgan": "~1.7.0",
     "pug": "^2.0.0-beta6",
     "recursive-readdir-sync": "^1.0.6",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "bluebird": "*"
   },
   "description": "A short description of the app.",
   "main": "./bin/www",

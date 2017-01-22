@@ -1,6 +1,7 @@
 const config = require('../config.js');
 
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 const dbURL = `mongodb://${config.database.host}:${config.database.port}/${config.database.name}`;
 mongoose.connect(dbURL);
 const db = mongoose.connection;
