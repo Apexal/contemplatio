@@ -82,7 +82,7 @@ app.use((err, req, res, next) => {
     if (req.originalUrl.startsWith('/api/')) {
         console.error(err);
         res.status(500);
-        res.json({ err: err });
+        res.json({ err: err.message });
     } else {
         // set locals, only providing error in development
         res.locals.message = err.message;
