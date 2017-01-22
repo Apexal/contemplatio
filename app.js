@@ -27,10 +27,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-  secret: config.secret,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true, maxAge: 1000 * 60 * 60 * 5 }
+    secret: config.secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true, maxAge: 1000 * 60 * 60 * 5 }
 }))
 app.use(express.static(path.join(__dirname, 'client/public')));
 
@@ -43,10 +43,12 @@ for (var h in helpers) {
 }
 
 // ALL REQUESTS PASS THROUGH HERE FIRST
-app.locals.defaultTitle = 'App Name';
+app.locals.defaultTitle = 'Contemplatio';
 app.use((req, res, next) => {
     res.locals.pageTitle = app.locals.defaultTitle;
     res.locals.pagePath = req.path;
+
+    req.db = mongodb;
 
     next();
 });
@@ -76,13 +78,20 @@ app.use((req, res, next) => {
 
 // Error handler
 app.use((err, req, res, next) => {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    console.log(req.originalUrl);
+    if (req.originalUrl.startsWith('/api/')) {
+        console.error(err);
+        res.status(500);
+        res.json({ err: err });
+    } else {
+        // set locals, only providing error in development
+        res.locals.message = err.message;
+        res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+        // render the error page
+        res.status(err.status || 500);
+        res.render('error');
+    }
 });
 
 module.exports = app;
