@@ -4,5 +4,5 @@ module.exports = {
         name: 'contemplatio',
         port: '27017'
     },
-    secret: 'app secret'
+    secret: 'your killing me smalls'
 };
