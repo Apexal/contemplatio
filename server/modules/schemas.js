@@ -6,6 +6,7 @@ module.exports = {
     Person: {
         firstName: String,
         lastName: String,
+        gender: String,
         title: String,
         relation: String,
         description: String,
