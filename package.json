@@ -1,5 +1,5 @@
 {
-  "name": "app_name",
+  "name": "contemplatio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,12 +23,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Apexal/express-template.git"
+    "url": "git+https://github.com/Apexal/contemplatio.git"
   },
   "author": "Frank Matranga <thefrankmatranga@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Apexal/express-template/issues"
+    "url": "https://github.com/Apexal/contemplatio/issues"
   },
-  "homepage": "https://github.com/Apexal/express-template#readme"
+  "homepage": "https://github.com/Apexal/contemplatio#readme"
 }
